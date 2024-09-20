@@ -11,6 +11,7 @@ from django.core.exceptions import FieldDoesNotExist, PermissionDenied
 from django.db.models import Q
 from django.forms import CheckboxSelectMultiple
 from django.template import RequestContext
+from django.urls import reverse
 from django.utils.functional import cached_property
 from django.utils.translation import gettext as _
 from django.utils.translation import gettext_lazy
@@ -148,6 +149,8 @@ class IndexView(generic.IndexView):
     results_template_name = "wagtailusers/users/index_results.html"
     add_item_label = gettext_lazy("Add a user")
     context_object_name = "users"
+    # We don't set search_fields and the model may not be indexed, but we override
+    # search_queryset, so we set is_searchable to True to enable search
     is_searchable = True
     page_title = gettext_lazy("Users")
     show_other_searches = True
@@ -427,7 +430,7 @@ class UserViewSet(ModelViewSet):
     def get_search_area(self):
         return self.search_area_class(
             gettext_lazy("Users"),
-            self.get_url_name("index"),
+            reverse(self.get_url_name("index")),
             name="users",
             icon_name="user",
             order=600,
