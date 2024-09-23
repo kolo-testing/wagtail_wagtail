@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 from wagtail.admin.forms import WagtailAdminPageForm
 
-from .utils import get_field_clean_name
+from wagtail.contrib.forms.utils import get_field_clean_name
 
 
 class BaseForm(django.forms.Form):

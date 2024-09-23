@@ -14,7 +14,9 @@ from wagtail.api import APIField
 from wagtail.contrib.forms.utils import get_field_clean_name
 from wagtail.models import Orderable, Page
 
-from .forms import FormBuilder, StreamFieldFormBuilder, WagtailAdminFormPageForm
+from .forms import WagtailAdminFormPageForm
+from .forms import FormBuilder
+from .forms.stream_fields import StreamFieldFormBuilder
 
 FORM_FIELD_CHOICES = (
     ("singleline", _("Single line text")),
