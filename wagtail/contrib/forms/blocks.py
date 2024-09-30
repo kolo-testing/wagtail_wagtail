@@ -3,6 +3,8 @@ from django.utils.translation import gettext_lazy as _
 
 from wagtail import blocks
 
+from wagtail.contrib.routable_page.templatetags.wagtailroutablepage_tags import routablepageurl
+
 
 class FormFieldBlock(blocks.StructBlock):
     label = blocks.CharBlock(
