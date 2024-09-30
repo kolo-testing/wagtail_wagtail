@@ -15,6 +15,7 @@ from wagtail.contrib.forms.utils import get_field_clean_name
 from wagtail.models import Orderable, Page
 
 from .forms import FormBuilder, StreamFieldFormBuilder, WagtailAdminFormPageForm
+from wagtail.contrib.routable_page.templatetags.wagtailroutablepage_tags import routablepageurl
 
 FORM_FIELD_CHOICES = (
     ("singleline", _("Single line text")),
